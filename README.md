@@ -1,4 +1,5 @@
 <h1 align="center"> Projeto Assistente Virtual </h1>
 
-<p align="center"> Descrição </p>
+<h2 align="center"> Descrição </h2>
+
 <p>Esse repósitório servirá para manter o backup do projeto</p>
