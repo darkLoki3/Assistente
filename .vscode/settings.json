@@ -1,3 +1,5 @@
 {
-    "jira-plugin.workingProject": ""
+    "jira-plugin.workingProject": "",
+    "markdown.preview.breaks": true,
+    "markdown.preview.typographer": true
 }
