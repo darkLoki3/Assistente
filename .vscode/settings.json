@@ -1,5 +1,6 @@
 {
     "jira-plugin.workingProject": "",
     "markdown.preview.breaks": true,
-    "markdown.preview.typographer": true
+    "markdown.preview.typographer": true,
+    "git.useCommitInputAsStashMessage": true
 }
