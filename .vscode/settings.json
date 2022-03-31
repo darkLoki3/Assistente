@@ -2,5 +2,18 @@
     "jira-plugin.workingProject": "",
     "markdown.preview.breaks": true,
     "markdown.preview.typographer": true,
-    "git.useCommitInputAsStashMessage": true
+    "git.useCommitInputAsStashMessage": true,
+    "jupyter.kernels.filter": [],
+    "python.testing.pytestArgs": [
+        "Intent_classification"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "*test.py"
+    ]
 }
