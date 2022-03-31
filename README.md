@@ -4,9 +4,9 @@
 <link href="./README.css" rel="stylesheet" type="text/css">
 </header>
 
-<h1 id="titulo"> Projeto Assistente Virtual </h1>
+<h1 id="titulo" font-size="24px" font-align="center"> Projeto Assistente Virtual </h1>
 
-<h2 id="corpo"> Descrição: </h2>
+<h2 id="corpo" font-size="22px" font-align="justify"> Descrição: </h2>
 
 <body id="informação">
 
