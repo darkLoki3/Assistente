@@ -1,7 +1,7 @@
 <html>
 <header>
 <link rel="stylesheet" href="https://cdn.jsdlivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-<link href="README.css" rel="stylesheet" type="text/css">
+<link href="./README.css" rel="stylesheet" type="text/css">
 </header>
 
 <h1 id="titulo"> Projeto Assistente Virtual </h1>
