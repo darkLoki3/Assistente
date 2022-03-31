@@ -1,5 +1,5 @@
 text,intent
-Como vai você?,greeting
+Tudo bem com você?,greeting
 Olá!,greeting
 Vejo Você mais tarde,leaving
 Falo com você mais tarde,leaving
@@ -12,7 +12,7 @@ Você quer fazer uma experiência comigo?,conversation
 Então vamos lá:, conversation
 Primeiro,conversation
 Eu quero que você ande bem devagarzinho neste tapete aqui no chão.,conversation
-Eu não consegui sentir seu pezinho deireito!,conversation
+Eu não consegui sentir seu pezinho direito!,conversation
 Você pode andar novamente?,conversation
 Isso mesmo!,conversation
 Parabéns!,conversation
@@ -21,3 +21,5 @@ A kidy estudou um tempão para fazer esse tapetinho para você.,conversation
 E agora eu posso dizer te dizer qual é a palmilha KIDY PERFEKT é a ideal para o seu pezinho.,conversation
 Estou muito feliz que a partir de agora seus passos estarão muito  mais protegidos e saúdaveis.,conversation
 Tchau!,leaving
+Como está o tempo?,weather
+Qual é a temperatura,weather

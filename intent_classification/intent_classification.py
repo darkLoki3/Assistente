@@ -5,7 +5,7 @@ from sklearn.naive_bayes import MultinomialNB
 
 class IntentClassifier:
     def __init__(self):
-        self.data = pd.read_csv('data.csv')
+        self.data = pd.read_csv('./data.csv')
         
         self.train()
         
@@ -14,7 +14,7 @@ class IntentClassifier:
         self.count_vect = CountVectorizer()
         X_train_counts = self.count_vect.fit_transform(X_train)
         tfidf_transformer = TfidfTransformer()
-        X_train_tfidf = tfidf_transformer.fit_transfom(X_train_counts)
+        X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
         self.clf = MultinomialNB().fit(X_train_tfidf, y_train)
         
         
@@ -23,4 +23,6 @@ class IntentClassifier:
     
 intent_classifier = IntentClassifier()
 
-print(intent_classifier.predict("Olá, como vai você?"))
+print(intent_classifier.predict("Olá, Tudo bem com você? Vamos ser amigos?"))
+
+print(intent_classifier.predict("Como está o tempo?"))
