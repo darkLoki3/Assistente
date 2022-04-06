@@ -14,3 +14,7 @@ server.pid
 *.eml
 /dist/
 .cache
+.github
+.mypy_cache
+.pytest_cache
+__pycache__

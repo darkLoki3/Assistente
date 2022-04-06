@@ -1,25 +1,25 @@
-text,intent
-Tudo bem com você?,greeting
-Olá!,greeting
-Vejo Você mais tarde,leaving
-Falo com você mais tarde,leaving
-Vamos ser amigos?,greeting
-Primeiro,conversation
-Diga-me seu nome,conversation
-Agora me conte quantos anos você tem?,question
-Que legal!,conversation
-Você quer fazer uma experiência comigo?,conversation
-Então vamos lá:, conversation
-Primeiro,conversation
-Eu quero que você ande bem devagarzinho neste tapete aqui no chão.,conversation
-Eu não consegui sentir seu pezinho direito!,conversation
-Você pode andar novamente?,conversation
-Isso mesmo!,conversation
-Parabéns!,conversation
-Você desfila muito bem!,conversation
-A kidy estudou um tempão para fazer esse tapetinho para você.,conversation
-E agora eu posso dizer te dizer qual é a palmilha KIDY PERFEKT é a ideal para o seu pezinho.,conversation
-Estou muito feliz que a partir de agora seus passos estarão muito  mais protegidos e saúdaveis.,conversation
-Tchau!,leaving
-Como está o tempo?,weather
-Qual é a temperatura,weather
+texto,intenção
+Tudo bem com você?,saudação
+Olá!,saudação
+Vejo Você mais tarde,despedida
+Falo com você mais tarde,despedida
+Vamos ser amigos?,saudação
+Primeiro,conversa
+Diga-me seu nome,conversa
+Agora me conte quantos anos você tem?,pergunta
+Que legal!,sentimento
+Você quer fazer uma experiência comigo?,pergunta
+Então vamos lá:,conversa
+Primeiro,conversa
+Eu quero que você ande bem devagarzinho neste tapete aqui no chão.,conversa
+Eu não consegui sentir seu pezinho direito!,conversa
+Você pode andar novamente?,pergunta
+Isso mesmo!,conversa
+Parabéns!,conversa
+Você desfila muito bem!,conversa
+A kidy estudou um tempão para fazer esse tapetinho para você.,conversa
+E agora eu posso dizer te dizer qual é a palmilha KIDY PERFEKT é a ideal para o seu pezinho.,conversa
+Estou muito feliz que a partir de agora seus passos estarão muito  mais protegidos e saúdaveis.,conversa
+Tchau!,despedida
+Como está o tempo?,clima
+Qual é a temperatura,clima

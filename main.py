@@ -1,52 +1,85 @@
-from assistant_functions.weather import get_weather
-import speech_recognition as sr
-import pyttsx3
-from intent_classification.intent_classification import IntentClassifier
-intent_classifier = IntentClassifier()
+        <ignored text>create Jira Issue<ignored text>
+from assistant_functions.weather import get_weather #importa o módulo de temperatura
+import speech_recognition as sr #importa o módulo de reconhecimento de fala
+import pyttsx3 #importa o modulo de text para fala
+import pyaudio
+from intent_classification.intent_classification import IntentClassifier #importa o módulo de classificação de intenção
+intent_classifier = IntentClassifier() #aciona a classe de classificação
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voices', voices[1].id, language='pt-BR')
+engine.setProperty('rate', 150)
+#TODO: #4 verificar o código
 
-class Assistant:
+class Assistant: #cria a classe assistente
 
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, name): #cria a função inicial
+        self.name = name #cria a instancia nome
 
-        self.speech_engine = pyttsx3.init()
-        self.speech_engine.setProperty("rate", 150)  # velocidade da fala
+        self.speech_engine = pyttsx3.init() #inicia o módulo de texto para fala
+        self.speech_engine.setProperty('rate', 150)  #configura a velocidade da fala
 
-        self.r = sr.Recognizer()
-        self.mic = sr.Microphone(device_index=0)
+        self.r = sr.Recognizer() #atribui o reconhecimento para a variável self
+        self.mic = sr.Microphone() #configura o microfone
 
-    def escuta(self):
+    def pega_comando():
 
-        with self.mic as source:
+        mic = sr.Recognizer()
+        with sr.Microphone() as source:
+            print("Ouvindo")
+            mic.pause_threshold = 1
+            audio = mic.listen(source)
+
+        try:
+            print("Reconhecendo")
+            query = mic.recognize_google(audio, language='pt-BR')
+            print(f"A frase dita foi {query}\n")
+
+        except Exception as e:
+            print("Fale novamente, por favor.\n")
+            return "Nada"
+        return query
+
+    def escuta(self, audio): #microfone ouvindo
+
+        with self.mic as source: #configura o microfone para escutar
             print("Estou ouvindo")
-            audio = sr.r.escuta(source, timeout=7, phrase_time_limit=10)
+            audio = self.r.listen(source)#limita o tempo de escuta
+            print("frase falada foi " + source)
 
-        return self.r.recognize_google(audio, language='pt-BR')
+        return self.r.recognize_google(audio, language='pt-BR')#reconhecimento de idioma
 
-    def say(self, text):
+    def fala(audio):#reproduz o script
         """Usando o pyttsx3 para conversão de texto para fala para dizer 'texto' como argumento"""
 
-        self.speech_engine.say(text)
-        self.speech_engine.runAndWait()
+        engine.say(audio) #procura no arquivo data o texto para falar
+        engine.runAndWait()#fala e aguarda a resposta
 
-    def responde(self, text):
-        intent = intent_classifier.predict(text)
+#    def escuta(self):
+#
+#        with self.mic as source:
+#            print("Ouvindo")
+#            audio = self.r.listen(source, language='pt-BR')
+#            print("A frase dita foi " + audio)
+#
+#            return self.r.recognize_google(audio, language='pt-BR')
 
-        respostas = {
-            'weather': get_weather
+    def responde(self, texto):#responde ao usuário
+        intent = intent_classifier.predict(texto)#previsão de respostas
+
+        respostas = {# dicionário de falas
+            'Clima' : get_weather
         }
 
-        responde_func = respostas[intent]
+        responde_func = respostas[intent]#intenção da fala
 
         if callable(responde_func):
-            self.say(responde_func())
+            self.fala(responde_func())
 
     def main(self):
         while True:
-            said = self.escuta()
+            said = self.fala(audio)
             self.responde(said)
 
-
-assistant = Assistant("kidy")
-assistant.responde("weather")
-assistant.main()
+assistant = Assistant('Kidy')
+assistant.responde('Clima')
