@@ -1,7 +1,7 @@
 from lib2to3.pgen2 import token
 import pyowm
 
-token = ""
+token = "25bd8bc0344de7b4976dbd573d1c5c82"
 
 own = pyowm.OWM(token).weather_manager()
 
