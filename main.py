@@ -35,7 +35,7 @@ class Assistant: #cria a classe assistente
             return "Nada"
         return query
 
-    def escuta(self, audio): #microfone ouvindo
+    def escuta(self): #microfone ouvindo
 
         with self.mic as source: #configura o microfone para escutar
             print("Estou ouvindo")
@@ -44,11 +44,11 @@ class Assistant: #cria a classe assistente
 
         return self.r.recognize_google(audio, language='pt-BR')#reconhecimento de idioma
 
-    def fala(audio):#reproduz o script
+    #def fala(audio):#reproduz o script
         """Usando o pyttsx3 para conversão de texto para fala para dizer 'texto' como argumento"""
 
-        engine.say(audio) #procura no arquivo data o texto para falar
-        engine.runAndWait()#fala e aguarda a resposta
+        #speech_engine.say(audio) #procura no arquivo data o texto para falar
+        #speech_engine.runAndWait()#fala e aguarda a resposta
 
 #    def escuta(self):
 #
@@ -71,9 +71,9 @@ class Assistant: #cria a classe assistente
         if callable(responde_func):
             self.fala(responde_func())
 
-    def main(self):
+    def main(self, source):
         while True:
-            said = self.fala(audio)
+            said = self.fala(source)
             self.responde(said)
 
 assistant = Assistant('Kidy')
