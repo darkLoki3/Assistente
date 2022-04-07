@@ -1,14 +1,9 @@
-        <ignored text>create Jira Issue<ignored text>
 from assistant_functions.weather import get_weather #importa o módulo de temperatura
 import speech_recognition as sr #importa o módulo de reconhecimento de fala
 import pyttsx3 #importa o modulo de text para fala
 import pyaudio
 from intent_classification.intent_classification import IntentClassifier #importa o módulo de classificação de intenção
 intent_classifier = IntentClassifier() #aciona a classe de classificação
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty('voices', voices[1].id, language='pt-BR')
-engine.setProperty('rate', 150)
 #TODO: #4 verificar o código
 
 class Assistant: #cria a classe assistente
