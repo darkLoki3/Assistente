@@ -14,16 +14,16 @@ class IntentClassifier:
         self.train() #treinamento de classificação
 
     def train(self): #função de treinamento
-        X_train, y_train = self.data['texto'], self.data['intenção']
-        self.count_vect = CountVectorizer()
-        X_train_counts = self.count_vect.fit_transform(X_train)
-        tfidf_transformer = TfidfTransformer()
-        X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+        X_train, y_train = self.data['texto'], self.data['intenção'] #pesquisa no arquivo o texto e a intenção
+        self.count_vect = CountVectorizer() #cria um contador vetorial
+        X_train_counts = self.count_vect.fit_transform(X_train) #transforma o valor de x_train para contador vetorial
+        tfidf_transformer = TfidfTransformer() #cria a variavel tfdidf
+        X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts) #treinando tfidf
         #self.clf = MultinomialNB().fit(X_train_tfidf, y_train) não precisa mais
-        self.svm = LinearSVC().fit(X_train_tfidf, y_train)
+        self.svm = LinearSVC().fit(X_train_tfidf, y_train) #termino do treinamento
 
-    def predict(self, texto):
-        return self.svm.predict(self.count_vect.transform([texto]))[0]
+    def predict(self, texto): #função de previsão
+        return self.svm.predict(self.count_vect.transform([texto]))[0] #retorno da classificação
 
 #intent_classifier = IntentClassifier() serve para testar
 

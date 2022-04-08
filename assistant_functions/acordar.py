@@ -1,4 +1,4 @@
-import pvporcupine
+import pvporcupine #modulo de 
 import struct
 import pyaudio
 
