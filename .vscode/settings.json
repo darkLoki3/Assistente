@@ -5,7 +5,7 @@
     "git.useCommitInputAsStashMessage": true,
     "jupyter.kernels.filter": [],
     "python.testing.pytestArgs": [
-        "."
+        "teste"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,

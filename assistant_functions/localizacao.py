@@ -1,5 +1,5 @@
-from assistant_functions.similar import determina_frase_mais_similar
-from assistant_functions.Fala_Escuta import Fala_Escuta
+from similar import determina_frase_mais_similar
+from Fala_Escuta import Fala_Escuta
 
 import geocoder
 
@@ -37,4 +37,4 @@ class Localizacao:
             elif type == 'país':
                 Fala_Escuta.fala(self.get_cidade_estado_pais()[2])
 
-localizacao = Localizacao()     
+Local = Localizacao()     
