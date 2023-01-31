@@ -10,7 +10,7 @@
 
 <body id="informação">
 
-<p id="descrição"> Esse repósitório servirá para manter o backup do projeto[PT-BR LANGUAGE] / This repository would be utilized for backup of project </p>
+<p id="descrição"> Esse repósitório servirá para manter o backup do projeto[PT-BR LANGUAGE] / This repository would be utilized for backup of project [GIVE UP] </p>
 
 <p id="lista"> Ferramentas Usadas:[PT-BR LANGUAGE] / Tools used
 
