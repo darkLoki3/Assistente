@@ -1,5 +1,8 @@
+import RPi.GPIO
+import internet
 import speech_recognition as sr
 import pyttsx3
+import sockets
 
 def escuta():
     mic = sr.Recognizer()
