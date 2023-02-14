@@ -3,6 +3,7 @@ import internet
 import speech_recognition as sr
 import pyttsx3
 import sockets
+import vosk
 
 def escuta():
     mic = sr.Recognizer()
