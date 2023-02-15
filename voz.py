@@ -5,6 +5,7 @@ import pyttsx3
 import sockets
 import vosk
 
+@assert
 def escuta():
     mic = sr.Recognizer()
     with sr.Microphone() as source:
@@ -21,11 +22,13 @@ def escuta():
             
     return Data
 
+@assert
 def Ola():
     print("Olá! Tudo bem com você? \n Vamos ser amigos?")
     return
 
-        
+
+@assert
 def responde(data):
     
     ouvindo = True
