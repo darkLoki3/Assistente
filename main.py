@@ -14,15 +14,20 @@ import pyaudio  #audio module
 from intent_classification.intent_classification import IntentClassifier
 import struct  #struct module
 import multiprocessing  #multiprocessing module
+import vosk
+import socket
+import internet
 
 # TODO #END: #4 Finish review all code #END
 
-
+@assert.class
 class Assistant:  # Assistant class
 
+    @assert
     def __init__(self, name):  # constructor function
         self.name = name  #self name
 
+    @assert
     def responde(self, texto):  #answer user
         intent = IntentClassifier.predict(texto)  #try to preview the intent
 
@@ -43,6 +48,7 @@ class Assistant:  # Assistant class
             Fala_escuta.fala(responde_func(texto, intent)
                              )  # answer the user
 
+    @assert       
     def main(self, source):  #main function()
         print("Pronto")  #show the mensage for the user start
         self.porcupine = None  # put null value
