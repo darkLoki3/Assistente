@@ -8,9 +8,11 @@
 
 <h2 id="corpo" font-size="22px" font-align="justify"> Descrição:[PT-BR LANGUAGE] / Description:</h2>
 
-<body id="informação">
+<body id="informacao">
 
-<p id="descrição"> Esse repósitório servirá para manter o backup do projeto[PT-BR LANGUAGE] / This repository would be utilized for backup of project [I will update when I have time from now on] </p>
+<p id="descricao"> Esse repósitório servirá para manter o backup do projeto[PT-BR LANGUAGE] / This repository would be utilized for backup of project [I will update when I have time from now on EN] </p>
+
+<p id="funcoes"> Interagir com os clientes, pegar o tamanho da palmilha, detectar a presença de uma pessoa, mostrar o rosto, encapsular tudo, movimentar o motor de passo</p>
 
 <p id="lista"> Ferramentas Usadas:[PT-BR LANGUAGE] / Tools used
 
