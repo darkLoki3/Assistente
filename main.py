@@ -8,7 +8,7 @@ from assistant_functions.resposta import resposta  #answer module
 from assistant_functions.localizacao import Localizacao  #localization module
 from assistant_functions.Abrir_Navegador import NavegadorAssistente  #browser module
 import speech_recognition as sr  #speech recognition module, but require internet
-import pyttsx3  #text to voice module
+import pyttsx3  #text to voice module can be used off-line, the optimized OS for this module is Linux, but can be used with sapi5 on windows
 import pyaudio  #audio module
 #intent classification module
 from intent_classification.intent_classification import IntentClassifier
