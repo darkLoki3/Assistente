@@ -13,8 +13,15 @@
 <p id="descricao"> Esse repósitório servirá para manter o backup do projeto[PT-BR LANGUAGE] / This repository would be utilized for backup of project [I will update when I have time from now on EN] </p>
 
 <p id="funcoes"> <h3>função / functions</h3>
-Interagir com os clientes, pegar o tamanho da palmilha, detectar a presença de uma pessoa, mostrar o rosto, encapsular tudo, movimentar o motor de passo.
-Interaction with clients, take the measure of feets,detect the proximity of some people, show the face, move the arm </p>
+<ol><li>Interagir com os clientes</li>
+<li>Pegar o tamanho da palmilha</li>
+<li>Detectar a presença de uma pessoa</li>
+<li>Mostrar o rosto</li>
+<li>Encapsular tudo</li>
+<li>Movimentar o braço.</li></lo>
+[En]
+* Interaction with clients
+* take the measure of feets,detect the proximity of some people, show the face, move the arm </p>
 <p id="lista"> Ferramentas Usadas:[PT-BR LANGUAGE] / Tools used
 
 <ul>
