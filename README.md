@@ -13,7 +13,8 @@
 <p id="descricao"> Esse repósitório servirá para manter o backup do projeto[PT-BR LANGUAGE] / This repository would be utilized for backup of project [I will update when I have time from now on EN] </p>
 
 <p id="funcoes"> <h3>função / functions</h3>
-<ol><li>Interagir com os clientes</li>
+<ol>
+<li>Interagir com os clientes</li>
 <li>Pegar o tamanho da palmilha</li>
 <li>Detectar a presença de uma pessoa</li>
 <li>Mostrar o rosto</li>
@@ -27,7 +28,7 @@
 <li>detect the proximity of some people</li>
 <li>show the face</li>
 <li>move the arm</li>
-</ol>
+</lo>
 </p>
 <p id="lista"> Ferramentas Usadas:[PT-BR LANGUAGE] / Tools used
 
