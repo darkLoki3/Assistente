@@ -20,9 +20,7 @@
 <li>Mostrar o rosto</li>
 <li>Encapsular tudo</li>
 <li>Movimentar o braço.</li>
-</lo>
 [En]
-<ol>
 <li>Interaction with clients</li>
 <li>take the measure of feets</li>
 <li>detect the proximity of some people</li>
