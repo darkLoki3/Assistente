@@ -18,10 +18,17 @@
 <li>Detectar a presença de uma pessoa</li>
 <li>Mostrar o rosto</li>
 <li>Encapsular tudo</li>
-<li>Movimentar o braço.</li></lo>
+<li>Movimentar o braço.</li>
+</lo>
 [En]
-* Interaction with clients
-* take the measure of feets,detect the proximity of some people, show the face, move the arm </p>
+<ol>
+<li>Interaction with clients</li>
+<li>take the measure of feets</li>
+<li>detect the proximity of some people</li>
+<li>show the face</li>
+<li>move the arm</li>
+</ol>
+</p>
 <p id="lista"> Ferramentas Usadas:[PT-BR LANGUAGE] / Tools used
 
 <ul>
@@ -38,5 +45,6 @@
 <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" width="60" height="60" /></li>
 </ul>
 </p>
+<p id="author"> Criador/Creator: Felipe Carvalho </p>
 </body>
 </html>
