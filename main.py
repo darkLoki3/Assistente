@@ -14,9 +14,9 @@ import pyaudio  #audio module
 from intent_classification.intent_classification import IntentClassifier
 import struct  #struct module
 import multiprocessing  #multiprocessing module
-import vosk
-import socket
-import internet
+import vosk #offline module
+import socket #network module
+import internet #real internet module
 
 # TODO #END: #4 Finish review all code #END
 
