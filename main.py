@@ -1,8 +1,8 @@
-from argparse import Action
-from ast import keyword
+from argparse import Action #module for sort
+from ast import keyword #module for picking keywords
 import pvporcupine  #module for voice
 from assistant_functions.weather import Clima  #weather module
-# módulo de fala e escuta
+# módulo de fala e escuta. modules to speak with the user.
 from assistant_functions.Fala_Escuta import Fala_Escuta, Fala_escuta #speak module
 from assistant_functions.resposta import resposta  #answer module
 from assistant_functions.localizacao import Localizacao  #localization module
@@ -25,7 +25,7 @@ class Assistant:  # Assistant class
 
     @assert
     def __init__(self, name):  # constructor function
-        self.name = name  #self name
+        self.name = name  #auto name 
 
     @assert
     def responde(self, texto):  #answer user
