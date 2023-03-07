@@ -1,3 +1,5 @@
+import flask #module for encapsulation
+import pytest #module for automation
 from argparse import Action #module for sort
 from ast import keyword #module for picking keywords
 import pvporcupine  #module for voice
