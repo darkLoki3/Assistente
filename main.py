@@ -5,7 +5,7 @@ from ast import keyword #module for picking keywords
 import pvporcupine  #module for voice
 from assistant_functions import Clima  #weather module
 # módulo de fala e escuta. modules to speak with the user.
-from assistant_functions import Fala_Escuta, Fala_escuta #speak module
+from assistant_functions import Fala_Escuta, resposta, Localizacao, NavegadorAssistente #speak module
 from assistant_functions import resposta  #answer module
 from assistant_functions import Localizacao  #localization module
 from assistant_functions import NavegadorAssistente  #browser module
