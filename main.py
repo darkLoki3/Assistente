@@ -1,7 +1,7 @@
 import flask #module for encapsulation
 import pytest #module for automation
 from argparse import Action #module for sort
-from ast import keyword #module for picking keywords
+from ast import Keyword #module for picking keywords
 import pvporcupine  #module for voice
 from assistant_functions import Clima  #weather module
 # módulo de fala e escuta. modules to speak with the user.
