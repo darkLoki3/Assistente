@@ -5,7 +5,7 @@ from Fala_Escuta import Fala_escuta  # módulo de fala e escuta
 from similar import determina_frase_mais_similar  # módulo de frase similar
 
 
-def resposta(texto, intencao):  # função resposta
+def Resposta(texto, intencao):  # função resposta
     with open(f'exemplos/{intencao}.json') as arquivosexemplo:  # abre o arquivo exemplos
         exemplos = json.load(arquivosexemplo)  # carrega o arquivo exemplos
 
