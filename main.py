@@ -34,11 +34,11 @@ class Assistant:  # Assistant class
         intent = IntentClassifier.predict(texto)  #try to preview the intent
 
         respostas = {  #struct answer 
-            'despedida': resposta,
-            'saudação': resposta,
-            'conversa': resposta,
-            'pergunta': resposta,
-            'sentimento': resposta,
+            'despedida': Resposta,
+            'saudação': Resposta,
+            'conversa': Resposta,
+            'pergunta': Resposta,
+            'sentimento': Resposta,
             'localização': Localizacao.main,
             'Clima': Clima.main,
             'abrir no navegador': NavegadorAssistente.main
