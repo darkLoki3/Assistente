@@ -13,7 +13,7 @@ import speech_recognition as sr  #speech recognition module, but require interne
 import pyttsx3  #text to voice module can be used off-line, the optimized OS for this module is Linux, but can be used with sapi5 on windows
 import pyaudio  #audio module
 #intent classification module
-from intent_classification.intent_classification import IntentClassifier
+from intent_classification import IntentClassifier
 import struct  #struct module
 import multiprocessing  #multiprocessing module
 import vosk #offline module
