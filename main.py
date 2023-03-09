@@ -3,12 +3,12 @@ import pytest #module for automation
 from argparse import Action #module for sort
 from ast import keyword #module for picking keywords
 import pvporcupine  #module for voice
-from assistant_functions.weather import Clima  #weather module
+from assistant_functions import Clima  #weather module
 # módulo de fala e escuta. modules to speak with the user.
-from assistant_functions.Fala_Escuta import Fala_Escuta, Fala_escuta #speak module
-from assistant_functions.resposta import resposta  #answer module
-from assistant_functions.localizacao import Localizacao  #localization module
-from assistant_functions.Abrir_Navegador import NavegadorAssistente  #browser module
+from assistant_functions import Fala_Escuta, Fala_escuta #speak module
+from assistant_functions import resposta  #answer module
+from assistant_functions import Localizacao  #localization module
+from assistant_functions import NavegadorAssistente  #browser module
 import speech_recognition as sr  #speech recognition module, but require internet
 import pyttsx3  #text to voice module can be used off-line, the optimized OS for this module is Linux, but can be used with sapi5 on windows
 import pyaudio  #audio module
