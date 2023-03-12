@@ -25,11 +25,9 @@ import internet #real internet module
 @assert.class
 class Assistant:  # Assistant class
 
-    @assert
     def __init__(self, name):  # constructor function
-        self.name = name  #auto name 
+    Self.name = name  #auto name 
 
-    @assert
     def responde(self, texto):  #answer user
         intent = IntentClassifier.predict(texto)  #try to preview the intent
 
@@ -49,8 +47,7 @@ class Assistant:  # Assistant class
         if callable(responde_func):  # check if is possible to answer the user
             Fala_escuta.fala(responde_func(texto, intent)
                              )  # answer the user
-
-    @assert       
+       
     def main(self, source):  #main function()
         print("Pronto")  #show the mensage for the user start
         self.porcupine = None  # put null value
