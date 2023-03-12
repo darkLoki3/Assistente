@@ -3,7 +3,7 @@ from io import StringIO  # módulo de string
 import pandas as pd  # Módulo do framework pandas para poder classificar
 from sklearn.feature_extraction.text import (
     CountVectorizer, TfidfTransformer, TfidfVectorizer)  # importação de modulos de treinamentos
-from sklearn.model_selection import train_test_split  # modelo de treinamento
+from sklearn.model_selection import Train_test_split  # modelo de treinamento
 from sklearn.naive_bayes import MultinomialNB  # Modelo de calculo
 from sklearn.preprocessing import LabelEncoder  # Classificação
 from sklearn.svm import LinearSVC  # Modulo de suporte de vetor de maquinas
