@@ -28,7 +28,7 @@ class Assistant:  # Assistant class
     def __init__(Self, name):  # constructor function
     Self.name = name  #auto name 
 
-    def responde(self, texto):  #answer user
+    def responde(Self, texto):  #answer user
         intent = IntentClassifier.predict(texto)  #try to preview the intent
 
         respostas = {  #struct answer 
@@ -55,7 +55,7 @@ class Assistant:  # Assistant class
         audio_stream = None  # stream audio receive null value
 
         # keyword for activate the assistant
-        Self.porcupine = pvporcupine.create(keywords=["Kidy"])
+        Self.porcupine = pvporcupine.create(Keywords=["Kidy"])
 
         pa = pyaudio.PyAudio()  # transform the pa var in class for receive audio
 
