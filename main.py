@@ -102,7 +102,7 @@ class Assistant:  # Assistant class
 
                     #Action = multiprocessing.Process(target=self.responde(falou))
 
-                    self.responde(falou)  # Answer the user
+                    Self.responde(falou)  # Answer the user
 
 
 # put classification to classificater var
