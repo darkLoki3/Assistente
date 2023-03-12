@@ -10,27 +10,27 @@ from sklearn.svm import LinearSVC  # Modulo de suporte de vetor de maquinas
 
 
 class IntentClassifier:
-    def __init__(self):
+    def __init__(Self):
         # abertura dos arquivos de intenção
-        self.data = pd.read_csv(
+        Self.data = pd.read_csv(
             '/home/pi/Documents/Assistente/intent_classification/data.csv')
-        self.train()  # treinamento de classificação
+        Self.train()  # treinamento de classificação
 
-    def train(self):  # função de treinamento
+    def train(Self):  # função de treinamento
         # pesquisa no arquivo o texto e a intenção
-        X_train, y_train = self.data['texto'], self.data['intenção']
-        self.count_vect = CountVectorizer()  # cria um contador vetorial
+        X_train, y_train = Self.data['texto'], Self.data['intenção']
+        Self.count_vect = CountVectorizer()  # cria um contador vetorial
         # transforma o valor de x_train para contador vetorial
-        X_train_counts = self.count_vect.fit_transform(X_train)
+        X_train_counts = Self.count_vect.fit_transform(X_train)
         tfidf_transformer = TfidfTransformer()  # cria a variavel tfdidf
         X_train_tfidf = tfidf_transformer.fit_transform(
             X_train_counts)  # treinando tfidf
         # self.clf = MultinomialNB().fit(X_train_tfidf, y_train) não precisa mais
-        self.svm = LinearSVC().fit(X_train_tfidf, y_train)  # termino do treinamento
+        Self.svm = LinearSVC().fit(X_train_tfidf, y_train)  # termino do treinamento
 
-    def predict(self, texto):  # função de previsão
+    def predict(Self, texto):  # função de previsão
         # retorno da classificação
-        return self.svm.predict(self.count_vect.transform([texto]))[0]
+        return Self.svm.predict(Self.count_vect.transform([texto]))[0]
 
 # intent_classifier = IntentClassifier() serve para testar
 
