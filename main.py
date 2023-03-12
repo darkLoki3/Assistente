@@ -25,7 +25,7 @@ import internet #real internet module
 @assert.class
 class Assistant:  # Assistant class
 
-    def __init__(self, name):  # constructor function
+    def __init__(Self, name):  # constructor function
     Self.name = name  #auto name 
 
     def responde(self, texto):  #answer user
@@ -48,45 +48,45 @@ class Assistant:  # Assistant class
             Fala_escuta.fala(responde_func(texto, intent)
                              )  # answer the user
        
-    def main(self, source):  #main function()
+    def main(Self, source):  #main function()
         print("Pronto")  #show the mensage for the user start
-        self.porcupine = None  # put null value
+        Self.porcupine = None  # put null value
         pa = None  # put null value for pa var
         audio_stream = None  # stream audio receive null value
 
         # keyword for activate the assistant
-        self.porcupine = pvporcupine.create(keywords=["Kidy"])
+        Self.porcupine = pvporcupine.create(keywords=["Kidy"])
 
         pa = pyaudio.PyAudio()  # transform the pa var in class for receive audio
 
         audio_stream = pa.open(
-            rate=self.porcupine.sample_rate,
+            rate=Self.porcupine.sample_rate,
             channels=1,
             format=pyaudio.paInt16,
             input=True,
-            frames_per_buffer=self.porcupine.frame_lenght)  # audio stream configuration
+            frames_per_buffer=Self.porcupine.frame_lenght)  # audio stream configuration
 
         # execute the command while is true (ALWAYS is true)
         while True:
 
             try:  # try
                 # put audio stream value to pcm var
-                pcm = audio_stream.read(self.porcupine.frame_lenght)
+                pcm = audio_stream.read(Self.porcupine.frame_lenght)
                 # put frame range to pcm
                 pcm = struct.unpack_from(
-                    "h" * self.porcupine.frame_lenght, pcm)
+                    "h" * Self.porcupine.frame_lenght, pcm)
             except:  # exception
                 audio_stream = pa.open(
-                    rate=self.porcupine.sample_rate,
+                    rate=Self.porcupine.sample_rate,
                     channels=1,
                     format=pyaudio.paInt16,
                     input=True,
-                    frames_per_buffer=self.porcupine.frame_lenght)  # reconfigure buffer if something went wrong
+                    frames_per_buffer=Self.porcupine.frame_lenght)  # reconfigure buffer if something went wrong
 
                 # create a index of keyword
-                keyword_index = self.porcupine.process(pcm)
+                Keyword_index = Self.porcupine.process(pcm)
 
-                if keyword_index >= 0:  # Check if index is bigger than zero
+                if Keyword_index >= 0:  # Check if index is bigger than zero
                     # Answer if the index is found
                     print("Palavra quente detectada")
 
