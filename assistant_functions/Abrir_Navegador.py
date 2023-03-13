@@ -1,15 +1,15 @@
 import Webbrowser #módulo de internet
 from assistant_functions import Determina_frase_mais_similar #módulo de frase
 from Fala_Escuta import Fala_Escuta #módulo de fala e escuta
-import re #módulo re
+import Re #módulo re
 
 class NavegadorAssistente: #classe navegador
     def Main(Self, texto, intencao): #função principal
-        tarefa = Self.determine_search_or_open(texto) #abre o arquivo texto
+        tarefa = Self.Determine_search_or_open(texto) #abre o arquivo texto
         if tarefa == 'abrir': #verfica se foi falado abrir
             Self.open(texto) #abre o arquivo texto
         elif tarefa == 'busca': #verifica se foi falado busca
-            Self.extract_search_term_and_website(texto) #extrai o termo e o site falado 
+            Self.Extract_search_term_and_website(texto) #extrai o termo e o site falado 
 
     def Determine_search_or_open(Self, texto): #função determina busca e abertura
         frases = {
@@ -19,10 +19,10 @@ class NavegadorAssistente: #classe navegador
             'abrir no navegador' : 'abrir'
             } #dicionário de expressões
 
-        mais_similar = determina_frase_mais_similar(texto, frases) #determina a expressão mais similar
+        mais_similar = Determina_frase_mais_similar(texto, frases) #determina a expressão mais similar
         return frases[mais_similar] #retorna a expressão mais similar
-    def abrir(self, texto): #função abrir
-        websites = {
+    def Abrir(Self, texto): #função abrir
+        Websites = {
             'google' : 'https://www.google.com.br',
             'kidy' : 'https://www.kidy.com.br'
             }#dicionário de sites
@@ -45,13 +45,13 @@ class NavegadorAssistente: #classe navegador
                 texto = texto.replace(f'{website} para', '') #troca a palavra no dicionário website para vazio
                 break #para
 
-        x = re.search('(?<=busca).*$', texto) #realiza pesquisa
+        x = Re.search('(?<=busca).*$', texto) #realiza pesquisa
         search_term = x.group().strip() #procura o termo
 
         if website_to_search is not None and search_term is not None: #verifica se a lista de sites para pesquisa
-            self.search_and_open(website_to_search, search_term) #pesquisa e abre o site após pesquisas
+            Self.search_and_open(website_to_search, search_term) #pesquisa e abre o site após pesquisas
 
-    def search_and_open(self, website, search_term): #função busca e abertura
+    def Search_and_open(Self, website, search_term): #função busca e abertura
         Fala_Escuta.fala("Claro!") #responde
         urls_to_search_dict = { 
             'google' : 'https://www.google.com.br/search?q={}',
