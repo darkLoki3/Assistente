@@ -4,14 +4,14 @@ from Fala_Escuta import Fala_Escuta #módulo de fala e escuta
 import re #módulo re
 
 class NavegadorAssistente: #classe navegador
-    def main(self, texto, intencao): #função principal
-        tarefa = self.determine_search_or_open(texto) #abre o arquivo texto
+    def Main(Self, texto, intencao): #função principal
+        tarefa = Self.determine_search_or_open(texto) #abre o arquivo texto
         if tarefa == 'abrir': #verfica se foi falado abrir
-            self.open(texto) #abre o arquivo texto
+            Self.open(texto) #abre o arquivo texto
         elif tarefa == 'busca': #verifica se foi falado busca
-            self.extract_search_term_and_website(texto) #extrai o termo e o site falado 
+            Self.extract_search_term_and_website(texto) #extrai o termo e o site falado 
 
-    def determine_search_or_open(self, texto): #função determina busca e abertura
+    def Determine_search_or_open(Self, texto): #função determina busca e abertura
         frases = {
             'abrir e buscar' : 'busca',
             'abrir' : 'abrir',
@@ -32,7 +32,7 @@ class NavegadorAssistente: #classe navegador
             if website_name in texto: #verifica se os nomes dos sites estão no arquivo texto
                 webbrowser.open_new_tab(web_address) #abreo navegador numa nova aba
 
-    def extract_search_term_and_website(self, texto): #função busca termo e site
+    def Extract_search_term_and_website(self, texto): #função busca termo e site
         texto = texto.lower() #muda de caixa alta para caixa baixa
         texto = texto.replace("Busca por", 'busca') #troca a palavra 'busca por' por 'busca' 
 
