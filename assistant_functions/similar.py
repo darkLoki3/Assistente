@@ -3,13 +3,13 @@ from difflib import SequenceMatcher  # módulo difflib
 import random  # módulo randomico
 
 
-def quao_similar(a, b):  # função para ver a similaridade
+def Quao_similar(a, b):  # função para ver a similaridade
     # retorna o quão similares são os termos comparados
     return int(SequenceMatcher(None, a, b).ratio()*100)
 
 
 # determina a frase mais similar
-def determina_frase_mais_similar(texto, intencao_dict):
+def Determina_frase_mais_similar(texto, intencao_dict):
     my_list = []
     my_dict = {}
     if len(intencao_dict) == 1:  # verifica o dicionário de intenção
