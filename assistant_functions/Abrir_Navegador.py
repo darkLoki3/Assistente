@@ -1,5 +1,5 @@
 import Webbrowser #módulo de internet
-from assistant_functions.similar import determina_frase_mais_similar #módulo de frase
+from assistant_functions import determina_frase_mais_similar #módulo de frase
 from Fala_Escuta import Fala_Escuta #módulo de fala e escuta
 import re #módulo re
 
