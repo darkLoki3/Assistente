@@ -1,6 +1,6 @@
 
-from difflib import SequenceMatcher  # módulo difflib
-import random  # módulo randomico
+from Difflib import SequenceMatcher  # módulo difflib
+import Random  # módulo randomico
 
 
 def Quao_similar(a, b):  # função para ver a similaridade
