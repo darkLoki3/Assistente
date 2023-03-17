@@ -46,7 +46,7 @@ class NavegadorAssistente: #classe navegador
                 break #para
 
         x = Re.search('(?<=busca).*$', texto) #realiza pesquisa
-        search_term = x.group().strip() #procura o termo
+        Search_term = x.group().strip() #procura o termo
 
         if Website_to_search is not None and Search_term is not None: #verifica se a lista de sites para pesquisa
             Self.search_and_open(Website_to_search, Search_term) #pesquisa e abre o site após pesquisas
