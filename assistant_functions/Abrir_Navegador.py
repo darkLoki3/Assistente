@@ -58,8 +58,8 @@ class NavegadorAssistente: #classe navegador
             'wikipedia' : 'https://pt.wikipedia.org/wiki/Special:Search/{}',
             'github' : "https://github.com/search?q={}"
             } #dicionário para pesquisa
-        Search_url = Urls_to_search_dict[website] #pesquisa o endereço dos sites
-        Url_to_open = Search_url.replace("{}", search_term) #troca o endereço pelo termo de pesquisa
+        Search_url = Urls_to_search_dict[Website] #pesquisa o endereço dos sites
+        Url_to_open = Search_url.replace("{}", Search_term) #troca o endereço pelo termo de pesquisa
         Webbrowser.open_new_tab(Url_to_open) #abre numa aba nova
 
 assistant_browser = NavegadorAssistente() #atribue a classe navegador assistente a variavel
