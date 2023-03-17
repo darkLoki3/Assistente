@@ -36,7 +36,7 @@ class NavegadorAssistente: #classe navegador
         texto = texto.lower() #muda de caixa alta para caixa baixa
         texto = texto.replace("Busca por", 'busca') #troca a palavra 'busca por' por 'busca' 
 
-        list_of_websites_to_search = ['google', 'kidy'] #lista de sites para busca
+        List_of_websites_to_search = ['google', 'kidy'] #lista de sites para busca
         Website_to_search = None #site para busca
         for Website in List_of_websites_to_search: #procura dentro da lista de siste para pesquisa
             if Website in List_of_websites_to_search: #verifica se o site se encontra dentro da lista de sites para pesquisa
