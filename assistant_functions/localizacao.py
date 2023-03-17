@@ -1,12 +1,12 @@
-import geocoder  # módulo de localização
+import Geocoder  # módulo de localização
 
 from Fala_Escuta import Fala_Escuta  # modulo de fala e escuta
-from similar import determina_frase_mais_similar  # frase mais similar
+from similar import Determina_frase_mais_similar  # frase mais similar
 
 
 class Localizacao:  # classe localização
 
-    def main(self, texto, intencao):  # função principal
+    def main(Self, texto, intencao):  # função principal
         exemplos = {
             "Onde nós estamos": {'função': self.fala_localizacao, 'type': 'localização'},
             "Localização": {'função': self.fala_localizacao, 'type': 'localização'},
@@ -15,18 +15,18 @@ class Localizacao:  # classe localização
             "país": {'função': self.fala_localizacao, 'type': 'país'}
         }  # dicionário de localização
 
-        mais_similar = determina_frase_mais_similar(
+        mais_similar = Determina_frase_mais_similar(
             texto, exemplos)  # frase similar
         # frase mais similar com a localização
         function = exemplos[mais_similar]['função']
         function(exemplos[mais_similar]['type'])  # tipo
 
         def get_lat_lng(self):  # função latitude e longitude
-            g = geocoder.ip('me')  # pega o ip
+            g = Geocoder.ip('me')  # pega o ip
             return g.latlng[0], g.latlng[1]  # retorna lat e long
 
         def get_cidade_estado_pais(self):  # função descobre local
-            g = geocoder.ip('me')  # pega o ip
+            g = Geocoder.ip('me')  # pega o ip
 
             return [g.city, g.state, g.country]  # retorna cidade, estado, país
 
