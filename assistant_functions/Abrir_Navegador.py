@@ -28,7 +28,7 @@ class NavegadorAssistente: #classe navegador
             }#dicionário de sites
         Fala_Escuta.fala("Claro!") #responde
         texto = texto.lower() #reduz o texto de caixa alta para caixa baixa
-        for website_name, web_address in websites.items(): #percorre os nomes dos sites e endereços que estão nos intems
+        for Website_name, Web_address in websites.items(): #percorre os nomes dos sites e endereços que estão nos intems
             if website_name in texto: #verifica se os nomes dos sites estão no arquivo texto
                 Webbrowser.open_new_tab(web_address) #abreo navegador numa nova aba
 
