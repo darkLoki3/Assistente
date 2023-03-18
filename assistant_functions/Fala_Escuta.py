@@ -6,11 +6,11 @@ import Playsound as playsound  # módulo de som
 
 class Fala_escuta:  # classe fala e escuta
     def __init__(Self):  # construtor
-        Self.speech_engine = Pyttsx3.init()  # inicializa o conversor de texto
+        Self.Speech_engine = Pyttsx3.init()  # inicializa o conversor de texto
         # configura a propriedade da velocidade de fala
-        Self.speech_engine.setProperty('rate', 150)
+        Self.Speech_engine.setProperty('rate', 150)
         # configura a propriedade de linguagem
-        Self.speech_engine.setProperty('voice', 'brazil')
+        Self.Speech_engine.setProperty('voice', 'brazil')
 
         Self.r = sr.Recognizer()  # configura o reconhecimento
         Self.mic = sr.Microphone()  # configura o microfone
