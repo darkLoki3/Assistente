@@ -18,8 +18,8 @@ class Fala_escuta:  # classe fala e escuta
     def fala(Self, texto):  # função fala
         """Use o motor texto para fala, pyttsx3 para falar o argumento 'texto' """
 
-        Self.speech_engine.say(texto)  # fala com o usuario
-        Self.speech_engine.runAndWait()  # corre e espera
+        Self.Speech_engine.say(texto)  # fala com o usuario
+        Self.Speech_engine.runAndWait()  # corre e espera
 
     def escuta(Self):  # função escuta
         """Usa a biblioteca de reconhecimento de fala para ouvir a entrada de audio e entender o que o usuário está falando"""
