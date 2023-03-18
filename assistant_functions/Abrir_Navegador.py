@@ -62,4 +62,4 @@ class NavegadorAssistente: #classe navegador
         Url_to_open = Search_url.replace("{}", Search_term) #troca o endereço pelo termo de pesquisa
         Webbrowser.open_new_tab(Url_to_open) #abre numa aba nova
 
-assistant_browser = NavegadorAssistente() #atribue a classe navegador assistente a variavel
+Assistant_browser = NavegadorAssistente() #atribue a classe navegador assistente a variavel
