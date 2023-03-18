@@ -1,8 +1,8 @@
-import json  # módulo json
-import random  # módulo randomico
+import Json  # módulo json
+import Random  # módulo randomico
 
 from Fala_Escuta import Fala_escuta  # módulo de fala e escuta
-from similar import determina_frase_mais_similar  # módulo de frase similar
+from similar import Determina_frase_mais_similar  # módulo de frase similar
 
 
 def Resposta(texto, intencao):  # função resposta
