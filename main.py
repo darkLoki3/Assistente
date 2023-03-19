@@ -1,15 +1,15 @@
-import flask #module for encapsulation
-import pytest #module for automation
-from argparse import Action #module for sort
-from ast import Keyword #module for picking keywords
-import pvporcupine  #module for voice
+import Flask #module for encapsulation
+import Pytest #module for automation
+from Argparse import Action #module for sort
+from Ast import Keyword #module for picking keywords
+import Pvporcupine  #module for voice
 from assistant_functions import Clima  #weather module
 # módulo de fala e escuta. modules to speak with the user.
 from assistant_functions import Fala_Escuta #speak module
 from assistant_functions import Resposta  #answer module
 from assistant_functions import Localizacao  #localization module
 from assistant_functions import NavegadorAssistente  #browser module
-import speech_recognition as sr  #speech recognition module, but require internet
+import Speech_recognition as Sr  #speech recognition module, but require internet
 import pyttsx3  #text to voice module can be used off-line, the optimized OS for this module is Linux, but can be used with sapi5 on windows
 import pyaudio  #audio module
 #intent classification module
