@@ -18,4 +18,4 @@ server.pid
 .mypy_cache
 .pytest_cache
 __pycache__
-ngrok/tokenclima.json
+home/pi/Documents/Assistente/ngrok/tokenclima.json
