@@ -1,6 +1,8 @@
+import json  # módulo de arquivos
+import os
+
 import requests  # modulo de requisição
 import pyowm  # módulo do clima
-import json  # módulo de arquivos
 
 from assistant_functions.localizacao import Local  # módulo de localização
 from Fala_Escuta import Fala_Escuta  # módulo de fala_escuto
@@ -9,10 +11,12 @@ from similar import determina_frase_mais_similar  # módulo similar
 
 class Clima:  # classe clima
     def __init__(self):  # função construtor
-        # abrir o arquivo do token
-        with open('/home/pi/Documents/Assistente/ngrok/tokenclima.json', 'r') as climatoken:
-            self.owm = pyowm.OWM(
-                climatoken.read()).weather_manager()  # ler o arquivo
+        api_key = os.getenv('OPENWEATHER_API_KEY')
+        if not api_key:
+            raise RuntimeError(
+                'OPENWEATHER_API_KEY não configurada. Defina a variável de ambiente antes de usar o clima.'
+            )
+        self.owm = pyowm.OWM(api_key).weather_manager()
 
     def main(self, texto, intencao):  # função principal
         exemplos = {
