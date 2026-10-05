@@ -4,9 +4,9 @@ import os
 import requests  # modulo de requisição
 import pyowm  # módulo do clima
 
-from assistant_functions.localizacao import Local  # módulo de localização
-from Fala_Escuta import Fala_Escuta  # módulo de fala_escuto
-from similar import determina_frase_mais_similar  # módulo similar
+from .localizacao import Local  # módulo de localização
+from .Fala_Escuta import Fala_Escuta  # módulo de fala_escuto
+from .similar import determina_frase_mais_similar  # módulo similar
 
 
 class Clima:  # classe clima
@@ -52,8 +52,7 @@ class Clima:  # classe clima
             return f"Atualmente na {cidade}, temos a {temperatura} graus e {weather.detailed_status}"
 
     def get_previsao_clima(self):  # função previsão
-        localizacao = Local()  # atribui a classe Local() a variável localizacao
-        lat, lng = localizacao.get_lat_lng()  # pega a latitude e longitude
+        lat, lng = Local.get_lat_lng()  # pega a latitude e longitude
 
         # pega o api com base na latitude e longitude
         r = requests.get(f'https://api.weather.gov/points/{lat},{lng}')
@@ -65,6 +64,9 @@ class Clima:  # classe clima
         return resposta['properties']['forecast']  # retorna a resposta
 
 
-locais = Local()  # atribui a classe local a variavel locais
+locais = Local  # atribui a instância local a variável locais
 
-clima = Clima()  # atribui a classe clima a variável clima
+try:
+    clima = Clima() if os.getenv('OPENWEATHER_API_KEY') else None
+except RuntimeError:
+    clima = None

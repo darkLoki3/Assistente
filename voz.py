@@ -1,57 +1,61 @@
-import RPi.GPIO
-import internet
-import speech_recognition as sr
-import pyttsx3
-import sockets
-import vosk
+import sys
 
-@assert
+try:
+    import RPi.GPIO as GPIO
+except ImportError:
+    GPIO = None
+
+try:
+    import speech_recognition as sr
+except ImportError:
+    sr = None
+
+
 def escuta():
-    mic = sr.Recognizer()
+    if sr is None:
+        raise RuntimeError('speech_recognition não está instalado.')
+
+    microfone = sr.Recognizer()
     with sr.Microphone() as source:
-        mic.adjust_for_ambient_noise(source)
-        audio = mic.listen(source, phrase_time_limit=5)
-    Data = ""
-    
+        microfone.adjust_for_ambient_noise(source)
+        print('Escutando...')
+        audio = microfone.listen(source, phrase_time_limit=5)
+
     try:
-        Data = mic.recognize_google(audio, language='pt-BR')
-        print("Frase dita por você é: " + Data)
+        frase = microfone.recognize_google(audio, language='pt-BR')
+        print(f'Frase dita por você é: {frase}')
+        return frase
     except sr.UnknownValueError:
-            print("Não entendi, pode repetir")
-            return "None"
-            
-    return Data
-
-@assert
-def Ola():
-    print("Olá! Tudo bem com você? \n Vamos ser amigos?")
-    return
+        print('Não entendi, pode repetir?')
+        return 'None'
 
 
-@assert
-def responde(data):
-    
+def ola():
+    print('Olá! Tudo bem com você?')
+    print('Vamos ser amigos?')
+
+
+def responde(data=''):
+    ola()
     ouvindo = True
-    Ola()
-    while ouvindo == True:
+
+    while ouvindo:
         data = escuta().lower()
         if 'sim' in data:
-            print("Primeiro, me diga qual o seu nome?")
+            print('Primeiro, me diga qual o seu nome?')
             continue
-        
-        if 'Marcos' or 'Raphael' or 'Augusto' or 'Sérgio' or 'Sabrina' or 'Amanda' or 'Gabriela' in data:
-            nome = data
-            print ("Agora me conte quantos anos você tem?")
+
+        if any(nome in data for nome in ['marcos', 'raphael', 'augusto', 'sérgio', 'sabrina', 'amanda', 'gabriela']):
+            print('Agora me conte quantos anos você tem?')
             continue
-        
-        if '2' or '3' or '4' or '5' or '6' or '7' in data:
+
+        if any(idade in data for idade in ['2', '3', '4', '5', '6', '7']):
             ouvindo = False
-            idade = data
-            #print ("Que legal!")
-            #print ("Primeiro, eu quero que você ande bm devagar neste tapete que está no chão")
-            print ("Tchau!")
-        
-    #elif nome in data:
-    #    escutando
-frase = ""
-responde(frase)
+            print('Tchau!')
+
+    return data
+
+
+if __name__ == '__main__':
+    frase = ''
+    responde(frase)

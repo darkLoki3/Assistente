@@ -1,36 +1,69 @@
-from io import StringIO  # módulo de string
+import csv
+from pathlib import Path
 
-import pandas as pd  # Módulo do framework pandas para poder classificar
-from sklearn.feature_extraction.text import (
-    CountVectorizer, TfidfTransformer, TfidfVectorizer)  # importação de modulos de treinamentos
-from sklearn.model_selection import Train_test_split  # modelo de treinamento
-from sklearn.naive_bayes import MultinomialNB  # Modelo de calculo
-from sklearn.preprocessing import LabelEncoder  # Classificação
-from sklearn.svm import LinearSVC  # Modulo de suporte de vetor de maquinas
+try:
+    import pandas as pd
+except ImportError:  # pragma: no cover - fallback leve para ambientes mínimos
+    pd = None
+
+try:
+    from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+    from sklearn.svm import LinearSVC
+except ImportError:  # pragma: no cover - fallback sem sklearn
+    CountVectorizer = None
+    TfidfTransformer = None
+    LinearSVC = None
 
 
 class IntentClassifier:
-    def __init__(Self):
-        # abertura dos arquivos de intenção
-        Self.data = pd.read_csv(
-            '/home/pi/Documents/Assistente/intent_classification/data.csv')
-        Self.train()  # treinamento de classificação
+    def __init__(self):
+        csv_path = Path(__file__).resolve().parent / 'data.csv'
+        self.data = self._load_data(csv_path)
+        self.train()
 
-    def train(Self):  # função de treinamento
-        # pesquisa no arquivo o texto e a intenção
-        X_train, y_train = Self.data['texto'], Self.data['intenção']
-        Self.count_vect = CountVectorizer()  # cria um contador vetorial
-        # transforma o valor de x_train para contador vetorial
-        X_train_counts = Self.count_vect.fit_transform(X_train)
-        tfidf_transformer = TfidfTransformer()  # cria a variavel tfdidf
-        X_train_tfidf = tfidf_transformer.fit_transform(
-            X_train_counts)  # treinando tfidf
-        # self.clf = MultinomialNB().fit(X_train_tfidf, y_train) não precisa mais
-        Self.svm = LinearSVC().fit(X_train_tfidf, y_train)  # termino do treinamento
+    def _load_data(self, csv_path):
+        if pd is not None:
+            return pd.read_csv(csv_path)
 
-    def predict(Self, texto):  # função de previsão
-        # retorno da classificação
-        return Self.svm.predict(Self.count_vect.transform([texto]))[0]
+        with csv_path.open('r', encoding='utf-8', newline='') as arquivo:
+            return list(csv.DictReader(arquivo))
+
+    def train(self):
+        if CountVectorizer is not None and LinearSVC is not None:
+            x_train = self.data['texto']
+            y_train = self.data['intencao']
+            self.count_vect = CountVectorizer()
+            x_train_counts = self.count_vect.fit_transform(x_train)
+            tfidf_transformer = TfidfTransformer()
+            x_train_tfidf = tfidf_transformer.fit_transform(x_train_counts)
+            self.svm = LinearSVC().fit(x_train_tfidf, y_train)
+            self._fallback = None
+            return
+
+        self._fallback = {
+            'saudação': ['olá', 'oi', 'bom dia', 'tudo bem', 'saudação'],
+            'despedida': ['tchau', 'adeus', 'até logo', 'vejo você mais tarde'],
+            'pergunta': ['qual', 'como', 'quando', 'onde', 'porque', 'quantos anos', 'nome'],
+            'sentimento': ['legal', 'feliz', 'parabéns', 'que legal'],
+            'conversa': ['primeiro', 'vamos', 'amigos', 'experiência', 'andar', 'tapete']
+        }
+        self.svm = None
+        self.count_vect = None
+
+    def predict(self, texto):
+        texto = (texto or '').lower()
+
+        if self.svm is not None and self.count_vect is not None:
+            return self.svm.predict(self.count_vect.transform([texto]))[0]
+
+        melhor = 'conversa'
+        melhor_score = -1
+        for intent, termos in self._fallback.items():
+            score = sum(1 for termo in termos if termo in texto)
+            if score > melhor_score:
+                melhor = intent
+                melhor_score = score
+        return melhor
 
 # intent_classifier = IntentClassifier() serve para testar
 

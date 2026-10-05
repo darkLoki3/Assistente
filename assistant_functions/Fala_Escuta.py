@@ -1,41 +1,42 @@
-from Email.Mime import Audio  # módulo de audio
-import Pyttsx3  # módulo conversor de texto para fala
-import Speech_recognition as sr  # módulo de reconhecimento de fala
-import Playsound as playsound  # módulo de som
+try:
+    import pyttsx3
+except ImportError:  # pragma: no cover - opcional em ambientes sem áudio
+    pyttsx3 = None
+
+try:
+    import speech_recognition as sr
+except ImportError:  # pragma: no cover - opcional em ambientes sem microfone
+    sr = None
 
 
-class Fala_escuta:  # classe fala e escuta
-    def __init__(Self):  # construtor
-        Self.Speech_engine = Pyttsx3.init()  # inicializa o conversor de texto
-        # configura a propriedade da velocidade de fala
-        Self.Speech_engine.setProperty('rate', 150)
-        # configura a propriedade de linguagem
-        Self.Speech_engine.setProperty('voice', 'brazil')
+class Fala_escuta:
+    def __init__(self):
+        self.speech_engine = pyttsx3.init() if pyttsx3 is not None else None
+        if self.speech_engine is not None:
+            self.speech_engine.setProperty('rate', 150)
+            self.speech_engine.setProperty('voice', 'brazil')
 
-        Self.r = sr.Recognizer()  # configura o reconhecimento
-        Self.mic = sr.Microphone()  # configura o microfone
+        self.r = sr.Recognizer() if sr is not None else None
+        self.mic = sr.Microphone() if sr is not None else None
 
-    def fala(Self, texto):  # função fala
-        """Use o motor texto para fala, pyttsx3 para falar o argumento 'texto' """
+    def fala(self, texto):
+        if self.speech_engine is None:
+            print(texto)
+            return
+        self.speech_engine.say(texto)
+        self.speech_engine.runAndWait()
 
-        Self.Speech_engine.say(texto)  # fala com o usuario
-        Self.Speech_engine.runAndWait()  # corre e espera
+    def escuta(self):
+        if self.r is None or self.mic is None:
+            raise RuntimeError('Reconhecimento de voz não está disponível nesta máquina.')
 
-    def escuta(Self):  # função escuta
-        """Usa a biblioteca de reconhecimento de fala para ouvir a entrada de audio e entender o que o usuário está falando"""
+        with self.mic as source:
+            self.r.adjust_for_ambient_noise(source)
+            print('Escutando...')
+            self.r.non_speaking_duration = 0.5
+            audio = self.r.listen(source, timeout=7, phrase_time_limit=5)
 
-        with Self.mic as source:  # configura o microfone como fonte
-            # configura o microfone para abafar o ruído do ambiente
-            Self.r.adjust_for_ambient_noise(source)
-            # escreve para usuário entender que pode falar
-            print("Escutando...")
-            # configura um tempo de espaço entre as palavras
-            Self.r.non_speaking_duration = 0.5
-            # atribuí a variável audio a frase que foi ouvida
-            audio = Self.r.listen(source, timeout=7, phrase_time_limit=5)
-
-        # tenta fazer o reconhecimento de fala
-        return (Self.r.recognize_google(audio, language='pt-BR'))
+        return self.r.recognize_google(audio, language='pt-BR')
 
 
-Fala_Escuta = Fala_escuta()  # atribui a classe Fala_escuta a variavel Fala_Escuta
+Fala_Escuta = Fala_escuta()

@@ -1,31 +1,29 @@
-import Pvporcupine  # modulo de microfone
-import Struct  # módulo de combinação de frase
-import Pyaudio  # módulo de audio
+import struct
+
+import pyaudio
+import pvporcupine
 
 
-porcupine = None  # define como vazio a variavel
-pa = None  # define como vaxzio a variavel
-audio_stream = None  # define como vazio a variavel
+porcupine = None
+pa = None
+audio_stream = None
 
-# cria a palavra para acionar o assistente
-porcupine = pvporcupine.create(keywords='Kidy')
-
-pa = Pyaudio.PyAudio()  # coloca a classe  audio na variável pa
+porcupine = pvporcupine.create(keywords=['Kidy'])
+pa = pyaudio.PyAudio()
 
 audio_stream = pa.open(
     rate=porcupine.sample_rate,
     channels=1,
     format=pyaudio.paInt16,
     input=True,
-    frames_per_buffer=porcupine.frame_length)  # configuração do microfone
+    frames_per_buffer=porcupine.frame_length,
+)
 
-while True:  # enquanto for verdade
-    # aciona o sistema porcupine
+while True:
     pcm = audio_stream.read(porcupine.frame_length)
-    # pega o tamanho da largura
-    pcm = struct.unpack_from("h" * porcupine.frame_length, pcm)
+    pcm = struct.unpack_from('h' * porcupine.frame_length, pcm)
 
-    Keyword_index = porcupine.process(pcm)  # procura pelo indice
+    keyword_index = porcupine.process(pcm)
 
-    if Keyword_index >= 0:  # verifica se é o indice
-        print("Palavra quente detectada")  # responde se encontrou a palavra
+    if keyword_index >= 0:
+        print('Palavra quente detectada')
