@@ -7,6 +7,7 @@ from sensor_kidy import SensorPresenca, TapetePressao
 
 
 def recomendar_modelo_palmilha(tamanho: str) -> str:
+    """Converte o tamanho da palmilha no modelo Kidy correspondente."""
     mapa = {
         '30': 'Kidy Mini',
         '31': 'Kidy Mini',
@@ -25,6 +26,7 @@ def recomendar_modelo_palmilha(tamanho: str) -> str:
 
 
 def _ler_entrada(prompt: str, fallback: str = '') -> str:
+    """Lê uma resposta do terminal e usa o valor padrão se ela estiver vazia ou indisponível."""
     try:
         valor = input(prompt).strip()
     except (EOFError, KeyboardInterrupt, StopIteration):
@@ -33,6 +35,7 @@ def _ler_entrada(prompt: str, fallback: str = '') -> str:
 
 
 def detectar_presenca(sensor: Optional[object] = None) -> bool:
+    """Consulta o sensor informado ou pergunta no terminal se há alguém presente."""
     if sensor is not None:
         return bool(sensor.detectar())
 
@@ -45,6 +48,7 @@ def iniciar_fluxo(
     sensor_presenca: Optional[object] = None,
     tapete: Optional[object] = None,
 ):
+    """Conduz a avaliação, coleta dados da criança e do tapete e salva o resultado."""
     sensor = sensor_presenca
     tapete_sensor = tapete or TapetePressao()
 

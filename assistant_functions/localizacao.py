@@ -9,6 +9,7 @@ from .similar import determina_frase_mais_similar
 
 class Localizacao:
     def main(self, texto, intencao):
+        """Identifica se a pergunta pede localização, cidade, estado ou país e responde em voz."""
         exemplos = {
             'Onde nós estamos': {'função': self.fala_localizacao, 'type': 'localização'},
             'Localização': {'função': self.fala_localizacao, 'type': 'localização'},
@@ -22,18 +23,21 @@ class Localizacao:
         func(exemplos[mais_similar]['type'])
 
     def get_lat_lng(self):
+        """Consulta a geolocalização por IP e retorna latitude e longitude."""
         if geocoder is None:
             raise RuntimeError('Geocoder não está instalado.')
         g = geocoder.ip('me')
         return g.latlng[0], g.latlng[1]
 
     def get_cidade_estado_pais(self):
+        """Consulta a geolocalização por IP e retorna cidade, estado e país."""
         if geocoder is None:
             return ['Local', 'Local', 'Local']
         g = geocoder.ip('me')
         return [g.city, g.state, g.country]
 
     def fala_localizacao(self, tipo):
+        """Converte a localização solicitada em uma resposta falada."""
         if tipo == 'localização':
             Fala_Escuta.fala(' '.join(self.get_cidade_estado_pais()))
         elif tipo == 'cidade':

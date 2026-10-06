@@ -7,6 +7,7 @@ from .similar import determina_frase_mais_similar
 
 class NavegadorAssistente:
     def main(self, texto, intencao):
+        """Interpreta o pedido como abertura de site ou busca e executa a ação correspondente."""
         tarefa = self.determine_search_or_open(texto)
         if tarefa == 'abrir':
             self.abrir(texto)
@@ -14,6 +15,7 @@ class NavegadorAssistente:
             self.extract_search_term_and_website(texto)
 
     def determine_search_or_open(self, texto):
+        """Compara o texto com frases conhecidas e identifica abertura ou busca."""
         frases = {
             'abrir e buscar': 'busca',
             'abrir': 'abrir',
@@ -24,6 +26,7 @@ class NavegadorAssistente:
         return frases[mais_similar]
 
     def abrir(self, texto):
+        """Abre em uma nova aba um dos sites reconhecidos no texto do usuário."""
         websites = {
             'google': 'https://www.google.com.br',
             'kidy': 'https://www.kidy.com.br',
@@ -35,6 +38,7 @@ class NavegadorAssistente:
                 webbrowser.open_new_tab(url)
 
     def extract_search_term_and_website(self, texto):
+        """Extrai o site e o termo de busca e encaminha os dois para a abertura da pesquisa."""
         texto = texto.lower().replace('busca por', 'busca')
         websites = ['google', 'kidy']
         website_to_search = None
@@ -53,6 +57,7 @@ class NavegadorAssistente:
             self.search_and_open(website_to_search, search_term)
 
     def search_and_open(self, website, search_term):
+        """Monta a URL de pesquisa para o site informado e abre uma nova aba no navegador."""
         Fala_Escuta.fala('Claro!')
         urls = {
             'google': 'https://www.google.com.br/search?q={}',

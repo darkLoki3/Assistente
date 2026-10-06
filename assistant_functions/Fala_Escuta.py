@@ -11,6 +11,7 @@ except ImportError:  # pragma: no cover - opcional em ambientes sem microfone
 
 class Fala_escuta:
     def __init__(self):
+        """Prepara síntese de voz e microfone quando as bibliotecas de áudio estão disponíveis."""
         self.speech_engine = pyttsx3.init() if pyttsx3 is not None else None
         if self.speech_engine is not None:
             self.speech_engine.setProperty('rate', 150)
@@ -20,6 +21,7 @@ class Fala_escuta:
         self.mic = sr.Microphone() if sr is not None else None
 
     def fala(self, texto):
+        """Fala o texto com síntese de voz ou o imprime se o mecanismo de áudio não existir."""
         if self.speech_engine is None:
             print(texto)
             return
@@ -27,6 +29,7 @@ class Fala_escuta:
         self.speech_engine.runAndWait()
 
     def escuta(self):
+        """Grava uma frase pelo microfone e a transcreve em português usando o serviço Google."""
         if self.r is None or self.mic is None:
             raise RuntimeError('Reconhecimento de voz não está disponível nesta máquina.')
 

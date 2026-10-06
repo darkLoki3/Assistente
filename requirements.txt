@@ -1,13 +1,6 @@
-Flask
-pytest
-requests
-pyowm
-pandas
-scikit-learn
-geocoder
-SpeechRecognition
-pyttsx3
-# Requer o pacote do sistema: sudo apt-get install portaudio19-dev
-PyAudio
-pvporcupine
-vosk
+requests>=2.32,<3
+pyowm>=3.3,<4
+pandas>=2.2,<4
+scikit-learn>=1.5,<2
+geocoder>=1.38,<2
+pytest>=8,<10

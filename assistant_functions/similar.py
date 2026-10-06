@@ -2,10 +2,12 @@ from difflib import SequenceMatcher
 
 
 def quao_similar(a, b):
+    """Calcula a similaridade percentual entre duas frases usando SequenceMatcher."""
     return int(SequenceMatcher(None, a, b).ratio() * 100)
 
 
 def determina_frase_mais_similar(texto, intencao_dict):
+    """Retorna a chave mais parecida com o texto ou a única chave disponível."""
     my_dict = {}
 
     if len(intencao_dict) == 1:

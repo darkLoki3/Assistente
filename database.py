@@ -4,6 +4,7 @@ from typing import Optional
 
 
 def init_db(db_path: str = 'avaliacoes.db') -> str:
+    """Cria o arquivo e a tabela de avaliações, caso ainda não existam."""
     db_file = Path(db_path)
     db_file.parent.mkdir(parents=True, exist_ok=True)
 
@@ -34,6 +35,7 @@ def salvar_avaliacao(
     observacoes: Optional[str] = None,
     db_path: str = 'avaliacoes.db',
 ) -> int:
+    """Insere uma avaliação no SQLite e devolve o identificador criado."""
     init_db(db_path)
     conn = sqlite3.connect(db_path)
     cursor = conn.execute(
@@ -50,6 +52,7 @@ def salvar_avaliacao(
 
 
 def listar_avaliacoes(db_path: str = 'avaliacoes.db'):
+    """Retorna as avaliações cadastradas, da mais recente para a mais antiga."""
     conn = sqlite3.connect(db_path)
     rows = conn.execute(
         '''
