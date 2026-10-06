@@ -1,49 +1,242 @@
-<html>
-<header>
-<link rel="stylesheet" href="https://cdn.jsdlivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-<link href="./README.css" rel="stylesheet" type="text/css">
-</header>
+# Assistente Virutal Kidy / Kidy Virtual Assistant
 
-<h1 id="titulo" font-size="24px" font-align="center"> Projeto Assistente Virtual[PT-BR LANGUAGE] / Project virtual assistant </h1>
+## PT-BR | Português (Brasil)
 
-<h2 id="corpo" font-size="22px" font-align="justify"> Descrição:[PT-BR LANGUAGE] / Description:</h2>
+### Descrição
+Este repositório contém um projeto de assistente virtual em Python, desenvolvido para interagir com o usuário por meio de conversa em linguagem natural. O sistema utiliza classificação de intenções para decidir como responder e também inclui integrações com funcionalidades como clima, localização, navegação e um fluxo específico para atendimento do projeto Kidy.
 
-<body id="informacao">
+### Objetivo do projeto
+O objetivo principal é criar uma base para um assistente inteligente que possa:
 
-<p id="descricao"> Esse repósitório servirá para manter o backup do projeto[PT-BR LANGUAGE] / This repository would be utilized for backup of project [I will update when I have time from now on EN] </p>
+- responder perguntas simples e conversas gerais;
+- identificar a intenção do usuário;
+- buscar informações como clima e localização;
+- abrir conteúdos no navegador;
+- apoiar o fluxo de avaliação do projeto Kidy.
 
-<p id="funcoes"> <h3>função / functions</h3>
-<ol>
-<li>Interagir com os clientes</li>
-<li>Pegar o tamanho da palmilha</li>
-<li>Detectar a presença de uma pessoa</li>
-<li>Mostrar o rosto</li>
-<li>Encapsular tudo</li>
-<li>Movimentar o braço.</li>
-[En]
-<li>Interaction with clients</li>
-<li>take the measure of feets</li>
-<li>detect the proximity of some people</li>
-<li>show the face</li>
-<li>move the arm</li>
-</lo>
-</p>
-<p id="lista"> Ferramentas Usadas:[PT-BR LANGUAGE] / Tools used
+### Funcionalidades
+- Conversa em linguagem natural;
+- Classificação de intenções;
+- Respostas personalizadas;
+- Consulta de clima;
+- Busca de localização;
+- Abertura de páginas no navegador;
+- Fluxo de execução para avaliação Kidy.
 
-<ul>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="60" height="60" /></li>
-<li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" width="60" height="60" /></li>
-</ul>
-</p>
-<p id="author"> Criador/Creator: Felipe Carvalho </p>
-</body>
-</html>
+### Estrutura do projeto
+
+```text
+Assistente/
+├── assistant_functions/
+│   ├── __init__.py
+│   ├── Abrir_Navegador.py
+│   ├── acordar.py
+│   ├── Fala_Escuta.py
+│   ├── localizacao.py
+│   ├── resposta.py
+│   ├── similar.py
+│   └── weather.py
+├── intent_classification/
+│   ├── data.csv
+│   └── intent_classification.py
+├── database.py
+├── fluxo_kidy.py
+├── main.py
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── sensor_kidy.py
+├── SECURITY.md
+├── voz.py
+├── teste/
+│   ├── div_test.py
+│   ├── soma_test.py
+│   ├── test_database.py
+│   ├── test_fluxo_kidy_sensor.py
+│   └── test_fluxo_kidy.py
+└── webhook-listener/
+```
+
+### Requisitos
+- Python 3.10 ou superior;
+- pip instalado;
+- ambiente virtual recomendado.
+
+### Instalação
+1. Clone o repositório:
+
+```bash
+git clone <url-do-repositorio>
+cd Assistente
+```
+
+2. Crie um ambiente virtual:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+3. Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Como executar
+Para iniciar o assistente principal:
+
+```bash
+python main.py
+```
+
+Para executar o fluxo Kidy:
+
+```bash
+python main.py --kidy-flow
+```
+
+### Fluxo de funcionamento
+1. O usuário digita uma mensagem;
+2. o arquivo `main.py` chama o método `Assistant.responde()`;
+3. o classificador de intenções identifica a intenção;
+4. a resposta correta é direcionada para a função adequada;
+5. o assistente retorna a resposta ou executa a ação solicitada.
+
+### Como testar
+O projeto já inclui testes em `teste/`.
+
+```bash
+pytest
+```
+
+### Dicas para manter este README profissional
+1. Atualize a descrição sempre que o projeto evoluir;
+2. Mantenha uma seção de funcionalidades sempre em dia;
+3. Liste os comandos de instalação e execução com exemplos reais;
+4. Documente dependências e requisitos de ambiente;
+5. Adicione imagens, diagramas ou fluxo de uso quando necessário;
+6. Mantenha o README em um idioma principal e, se possível, em tradução para outros públicos.
+
+---
+
+## EN | English
+
+### Description
+This repository contains a Python virtual assistant project designed to interact with users through natural language conversations. The system uses intent classification to decide how to respond and also includes integrations for weather, location, browser access, and a specific flow for the Kidy project.
+
+### Project goal
+The main goal is to create a foundation for an intelligent assistant that can:
+
+- answer simple questions and general conversations;
+- identify the user intent;
+- fetch information such as weather and location;
+- open content in the browser;
+- support the Kidy evaluation workflow.
+
+### Features
+- Natural language conversation;
+- Intent classification;
+- Personalized responses;
+- Weather lookup;
+- Location search;
+- Browser access;
+- Kidy workflow execution.
+
+### Project structure
+
+```text
+Assistente/
+├── assistant_functions/
+│   ├── __init__.py
+│   ├── Abrir_Navegador.py
+│   ├── acordar.py
+│   ├── Fala_Escuta.py
+│   ├── localizacao.py
+│   ├── resposta.py
+│   ├── similar.py
+│   └── weather.py
+├── intent_classification/
+│   ├── data.csv
+│   └── intent_classification.py
+├── database.py
+├── fluxo_kidy.py
+├── main.py
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── sensor_kidy.py
+├── SECURITY.md
+├── voz.py
+├── teste/
+│   ├── div_test.py
+│   ├── soma_test.py
+│   ├── test_database.py
+│   ├── test_fluxo_kidy_sensor.py
+│   └── test_fluxo_kidy.py
+└── webhook-listener/
+```
+
+### Requirements
+- Python 3.10 or higher;
+- pip installed;
+- a virtual environment is recommended.
+
+### Installation
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd Assistente
+```
+
+2. Create a virtual environment:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### How to run
+To start the main assistant:
+
+```bash
+python main.py
+```
+
+To run the Kidy flow:
+
+```bash
+python main.py --kidy-flow
+```
+
+### Workflow
+1. The user enters a message;
+2. `main.py` calls `Assistant.responde()`;
+3. the intent classifier identifies the intention;
+4. the appropriate function is called;
+5. the assistant returns the answer or executes the requested action.
+
+### Testing
+The project already includes tests in the `teste/` folder.
+
+```bash
+pytest
+```
+
+### Tips for keeping this README professional
+1. Update the description whenever the project changes;
+2. Keep the feature section current;
+3. List installation and execution commands with real examples;
+4. Document environment dependencies and requirements;
+5. Add images, diagrams, or usage flows when necessary;
+6. Keep the README in a primary language and, if useful, add a translation for international readers.
+
+### Author
+Felipe Carvalho
