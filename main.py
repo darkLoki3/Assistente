@@ -12,10 +12,12 @@ from intent_classification.intent_classification import IntentClassifier
 
 class Assistant:
     def __init__(self, name):
+        """Inicializa o assistente com seu nome e o classificador de intenções."""
         self.name = name
         self.intent_classifier = IntentClassifier()
 
     def responde(self, texto):
+        """Classifica a mensagem e encaminha o texto ao módulo que atende a intenção."""
         intent = self.intent_classifier.predict(texto)
 
         respostas = {
@@ -40,6 +42,7 @@ class Assistant:
         return None
 
     def registrar_avaliacao(self, nome, idade, tamanho_palmilha, modelo_recomendado=None, observacoes=None):
+        """Encaminha os dados recebidos para gravação no banco de avaliações."""
         return salvar_avaliacao(
             nome=nome,
             idade=idade,
@@ -49,6 +52,7 @@ class Assistant:
         )
 
     def main(self):
+        """Executa o atendimento interativo até o usuário encerrar a entrada."""
         print('Pronto')
         while True:
             try:
@@ -62,6 +66,7 @@ class Assistant:
             self.responde(texto)
 
     def run_kidy_flow(self):
+        """Inicia o fluxo de avaliação de palmilha do Kidy."""
         return iniciar_fluxo()
 
 

@@ -12,6 +12,7 @@ except ImportError:
 
 
 def escuta():
+    """Captura áudio do microfone e tenta transcrever a fala em português."""
     if sr is None:
         raise RuntimeError('speech_recognition não está instalado.')
 
@@ -31,11 +32,13 @@ def escuta():
 
 
 def ola():
+    """Imprime a saudação inicial e pergunta se a pessoa quer conversar."""
     print('Olá! Tudo bem com você?')
     print('Vamos ser amigos?')
 
 
 def responde(data=''):
+    """Conduz uma conversa por voz para coletar consentimento, nome e idade."""
     ola()
     ouvindo = True
 

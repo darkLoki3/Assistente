@@ -17,11 +17,13 @@ except ImportError:  # pragma: no cover - fallback sem sklearn
 
 class IntentClassifier:
     def __init__(self):
+        """Carrega os exemplos de intenção e prepara o classificador ou sua alternativa simples."""
         csv_path = Path(__file__).resolve().parent / 'data.csv'
         self.data = self._load_data(csv_path)
         self.train()
 
     def _load_data(self, csv_path):
+        """Lê o CSV de exemplos com pandas ou usa csv.DictReader se pandas não estiver instalado."""
         if pd is not None:
             return pd.read_csv(csv_path)
 
@@ -29,6 +31,7 @@ class IntentClassifier:
             return list(csv.DictReader(arquivo))
 
     def train(self):
+        """Treina o modelo TF-IDF/SVM ou configura palavras-chave como alternativa sem scikit-learn."""
         if CountVectorizer is not None and LinearSVC is not None:
             x_train = self.data['texto']
             y_train = self.data['intencao']
@@ -51,6 +54,7 @@ class IntentClassifier:
         self.count_vect = None
 
     def predict(self, texto):
+        """Prevê a intenção da mensagem com o modelo treinado ou com a alternativa por palavras-chave."""
         texto = (texto or '').lower()
 
         if self.svm is not None and self.count_vect is not None:

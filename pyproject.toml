@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "assistente-kidy"
+version = "0.1.0"
+description = "Assistente virtual em português com fluxo de avaliação Kidy"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.32,<3",
+    "pyowm>=3.3,<4",
+    "pandas>=2.2,<4",
+    "scikit-learn>=1.5,<2",
+    "geocoder>=1.38,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.setuptools]
+py-modules = ["database", "fluxo_kidy", "main", "sensor_kidy", "voz"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["assistant_functions*", "intent_classification*"]
+
+[tool.setuptools.package-data]
+intent_classification = ["data.csv"]

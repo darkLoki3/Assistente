@@ -7,6 +7,7 @@ from .similar import determina_frase_mais_similar
 
 
 def Resposta(texto, intencao):
+    """Escolhe uma resposta semelhante à mensagem ou usa uma resposta padrão para a intenção."""
     caminho = Path(__file__).resolve().parent.parent / 'exemplos' / f'{intencao}.json'
     if not caminho.exists():
         respostas = {

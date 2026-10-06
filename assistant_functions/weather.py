@@ -11,6 +11,7 @@ from .similar import determina_frase_mais_similar  # módulo similar
 
 class Clima:  # classe clima
     def __init__(self):  # função construtor
+        """Inicializa o cliente OpenWeatherMap usando OPENWEATHER_API_KEY do ambiente."""
         api_key = os.getenv('OPENWEATHER_API_KEY')
         if not api_key:
             raise RuntimeError(
@@ -19,6 +20,7 @@ class Clima:  # classe clima
         self.owm = pyowm.OWM(api_key).weather_manager()
 
     def main(self, texto, intencao):  # função principal
+        """Identifica o tipo de consulta meteorológica e fala o resultado correspondente."""
         exemplos = {
             'Qual é o clima?': {'função': self.get_clima_local, 'type': 'clima'},
             'temperatura': {'função': self.get_clima_local, 'type': 'temperatura'},
@@ -34,6 +36,7 @@ class Clima:  # classe clima
         Fala_Escuta.fala(func(exemplos[mais_similar]['type']))
 
     def get_clima_local(self, type):  # função para pegar o clima
+        """Consulta temperatura, umidade ou condição atual para as coordenadas locais."""
         lat, lng = Local.get_lat_lng()  # pega a latitude e longitude
         weather = self.owm.weather_at_coords(
             lat, lng).weather  # pega as coordenadas
@@ -52,6 +55,7 @@ class Clima:  # classe clima
             return f"Atualmente na {cidade}, temos a {temperatura} graus e {weather.detailed_status}"
 
     def get_previsao_clima(self):  # função previsão
+        """Consulta os endpoints de previsão do serviço weather.gov usando as coordenadas locais."""
         lat, lng = Local.get_lat_lng()  # pega a latitude e longitude
 
         # pega o api com base na latitude e longitude
