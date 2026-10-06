@@ -110,14 +110,6 @@ O projeto já inclui testes em `teste/`.
 pytest
 ```
 
-### Dicas para manter este README profissional
-1. Atualize a descrição sempre que o projeto evoluir;
-2. Mantenha uma seção de funcionalidades sempre em dia;
-3. Liste os comandos de instalação e execução com exemplos reais;
-4. Documente dependências e requisitos de ambiente;
-5. Adicione imagens, diagramas ou fluxo de uso quando necessário;
-6. Mantenha o README em um idioma principal e, se possível, em tradução para outros públicos.
-
 ---
 
 ## EN | English
@@ -229,14 +221,6 @@ The project already includes tests in the `teste/` folder.
 ```bash
 pytest
 ```
-
-### Tips for keeping this README professional
-1. Update the description whenever the project changes;
-2. Keep the feature section current;
-3. List installation and execution commands with real examples;
-4. Document environment dependencies and requirements;
-5. Add images, diagrams, or usage flows when necessary;
-6. Keep the README in a primary language and, if useful, add a translation for international readers.
 
 ### Author
 Felipe Carvalho
