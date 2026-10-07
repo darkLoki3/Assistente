@@ -1,4 +1,4 @@
-# Assistente Virutal Kidy / Kidy Virtual Assistant
+# Assistente Virtual Kidy / Kidy Virtual Assistant
 
 ## PT-BR | Português (Brasil)
 
@@ -79,7 +79,7 @@ Assistente/
 1. Clone o repositório:
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/darkLoki3/Assistente.git
 cd Assistente
 ```
 
@@ -202,7 +202,7 @@ Assistente/
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/darkLoki3/Assistente.git
 cd Assistente
 ```
 
