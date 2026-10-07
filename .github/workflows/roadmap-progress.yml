@@ -74,60 +74,7 @@ jobs:
           CLOSED: ${{ steps.milestone-progress.outputs.closed }}
           TOTAL: ${{ steps.milestone-progress.outputs.total }}
           BAR: ${{ steps.milestone-progress.outputs.bar }}
-        run: |
-          python - <<'PY'
-          import os
-          import re
-          from pathlib import Path
-
-          path = Path('README.md')
-          text = path.read_text(encoding='utf-8')
-
-          title = os.environ['TITLE']
-          percent = os.environ['PERCENT']
-          closed = os.environ['CLOSED']
-          total = os.environ['TOTAL']
-          bar = os.environ['BAR']
-
-          pt_block = (
-              "<!-- ROADMAP_PROGRESS_PT_START -->\n"
-              f"**Progresso: {percent}%**\n"
-              f"{bar}\n\n"
-              f"Milestone atual: **{title}**\n"
-              f"- Concluídas: {closed}\n"
-              f"- Total: {total}\n"
-              "<!-- ROADMAP_PROGRESS_PT_END -->"
-          )
-
-          en_block = (
-              "<!-- ROADMAP_PROGRESS_EN_START -->\n"
-              f"**Progress: {percent}%**\n"
-              f"{bar}\n\n"
-              f"Current milestone: **{title}**\n"
-              f"- Completed: {closed}\n"
-              f"- Total: {total}\n"
-              "<!-- ROADMAP_PROGRESS_EN_END -->"
-          )
-
-          text, pt_replaced = re.subn(
-              r'<!-- ROADMAP_PROGRESS_PT_START -->.*?<!-- ROADMAP_PROGRESS_PT_END -->',
-              pt_block,
-              text,
-              flags=re.S,
-          )
-
-          text, en_replaced = re.subn(
-              r'<!-- ROADMAP_PROGRESS_EN_START -->.*?<!-- ROADMAP_PROGRESS_EN_END -->',
-              en_block,
-              text,
-              flags=re.S,
-          )
-
-          if pt_replaced == 0 or en_replaced == 0:
-              raise SystemExit('Roadmap markers not found in README.md')
-
-          path.write_text(text, encoding='utf-8')
-          PY
+        run: python .github/scripts/update_roadmap.py
 
       - name: Commit README update
         run: |
