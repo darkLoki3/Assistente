@@ -146,8 +146,8 @@ The main goal is to create a foundation for an intelligent assistant that can:
 
 ### Roadmap
 <!-- ROADMAP_PROGRESS_EN_START -->
-The progress indicator will be update automatically.
-<!-- ROADMAP_PROGRESS_END_END -->
+The progress indicator will be updated automatically.
+<!-- ROADMAP_PROGRESS_EN_END -->
 
 ### Project structure
 
