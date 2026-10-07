@@ -27,7 +27,12 @@ O objetivo principal é criar uma base para um assistente inteligente que possa:
 
 
 <!-- ROADMAP_PROGRESS_PT_START -->
-O indicador será atualizado automaticamente.
+**Progresso: 0%**
+░░░░░░░░░░░░░░░░░░░░ 0%
+
+Milestone atual: **v1.0**
+- Concluídas: 0
+- Total: 3
 <!-- ROADMAP_PROGRESS_PT_END -->
 
 
@@ -146,7 +151,12 @@ The main goal is to create a foundation for an intelligent assistant that can:
 
 ### Roadmap
 <!-- ROADMAP_PROGRESS_EN_START -->
-The progress indicator will be updated automatically.
+**Progress: 0%**
+░░░░░░░░░░░░░░░░░░░░ 0%
+
+Current milestone: **v1.0**
+- Completed: 0
+- Total: 3
 <!-- ROADMAP_PROGRESS_EN_END -->
 
 ### Project structure
