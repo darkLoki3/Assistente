@@ -23,6 +23,14 @@ O objetivo principal é criar uma base para um assistente inteligente que possa:
 - Abertura de páginas no navegador;
 - Fluxo de execução para avaliação Kidy.
 
+### Roadmap
+
+
+<!-- ROADMAP_PROGRESS_PT_START -->
+O indicador será atualizado automaticamente.
+<!-- ROADMAP_PROGRESS_PT_END -->
+
+
 ### Estrutura do projeto
 
 ```text
@@ -134,6 +142,12 @@ The main goal is to create a foundation for an intelligent assistant that can:
 - Location search;
 - Browser access;
 - Kidy workflow execution.
+
+
+### Roadmap
+<!-- ROADMAP_PROGRESS_EN_START -->
+The progress indicator will be update automatically.
+<!-- ROADMAP_PROGRESS_END_END -->
 
 ### Project structure
 

@@ -1,0 +1,29 @@
+name: Atualizar progresso do roadmap
+
+on:
+  issues:
+    types: [opened, closed, reopened, milestoned, demilestoned]
+  milestone:
+    types: [opened, closed, edited]
+  workflow_dispatch:
+
+permissions:
+  issues: read
+  contents: write
+  pull-requests: write
+
+jobs:
+  roadmap-progress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            branch: automation/roadmap-progress
+            commit-message: "docs: update roadmap progress"
+            title: "docs: update roadmap progress"
+            body: "Atualização automática do progresso da milestone."
