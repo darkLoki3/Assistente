@@ -27,11 +27,11 @@ O objetivo principal é criar uma base para um assistente inteligente que possa:
 
 
 <!-- ROADMAP_PROGRESS_PT_START -->
-**Progresso: 13%**
-███░░░░░░░░░░░░░░░░░ 13%
+**Progresso: 25%**
+█████░░░░░░░░░░░░░░░ 25%
 
 Milestone atual: **v1.0**
-- Concluídas: 1
+- Concluídas: 2
 - Total: 8
 <!-- ROADMAP_PROGRESS_PT_END -->
 
@@ -151,11 +151,11 @@ The main goal is to create a foundation for an intelligent assistant that can:
 
 ### Roadmap
 <!-- ROADMAP_PROGRESS_EN_START -->
-**Progress: 13%**
-███░░░░░░░░░░░░░░░░░ 13%
+**Progress: 25%**
+█████░░░░░░░░░░░░░░░ 25%
 
 Current milestone: **v1.0**
-- Completed: 1
+- Completed: 2
 - Total: 8
 <!-- ROADMAP_PROGRESS_EN_END -->
 
