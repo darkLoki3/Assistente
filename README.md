@@ -32,7 +32,7 @@ O objetivo principal é criar uma base para um assistente inteligente que possa:
 
 Milestone atual: **Revisão e reorganização da documentação**
 - Concluídas: 0
-- Total: 1
+- Total: 2
 <!-- ROADMAP_PROGRESS_PT_END -->
 
 
@@ -156,7 +156,7 @@ The main goal is to create a foundation for an intelligent assistant that can:
 
 Current milestone: **Revisão e reorganização da documentação**
 - Completed: 0
-- Total: 1
+- Total: 2
 <!-- ROADMAP_PROGRESS_EN_END -->
 
 ### Project structure
